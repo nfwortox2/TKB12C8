@@ -1,17 +1,66 @@
-#myTable {
-    width: 100% !important;
-    background-color: white !important;
-    color: #000 !important;
+html,
+body {
+    height: 100%; 
 }
 
-#myTable th,
-#myTable td {
-    border: 1px solid #ddd !important;
-    padding: 12px !important;
-    text-align: center !important;
+body {
+    margin: 0;
+    background: linear-gradient(45deg, #49a09d, #5f2c82);
+    font-family: sans-serif;
+    font-weight: 100;
 }
 
-#myTable th {
-    background-color: #4CAF50 !important;
-    color: white !important;
+.container {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
+
+table {
+    width: 80%; /* Assuming a maximum width of 80% of the viewport */
+    border-collapse: collapse;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+th,
+td {
+	text-align: center;
+	vertical-align: middle;
+	min-width: 100px;
+    padding: 1.5rem; /* Using rem units for relative sizing */
+    background-color: rgba(255,255,255,0.2);
+    color: #fff;
+}
+
+th {
+    text-align: center;
+	
+}
+
+thead {
+    th {
+        background-color: #55608f;
+    }
+}
+/* tbody { */
+    /* tr:hover { */
+        /* background-color: rgba(255,255,255,0.3); */
+    /* } */
+    /* td { */
+        /* position: relative; */
+        /* &:hover { */
+            /* &:before { */
+                /* content: ""; */
+                /* position: absolute; */
+                /* left: 0; */
+                /* right: 0; */
+                /* top: -9999px; */
+                /* bottom: -9999px; */
+                /* background-color: rgba(255,255,255,0.2); */
+                /* z-index: -1; */
+            /* } */
+        /* } */
+    /* } */
+/* } */
