@@ -109,6 +109,7 @@
 
             // Sử dụng html2canvas để chụp ảnh
             html2canvas(tableContainer, { useCORS: true }).then(canvas => {
+				document.body.appendChild(canvas) // debug
                 // Tạo một thẻ <a> để tải ảnh về
                 const link = document.createElement('a');
                 link.download = `TKB-12C8-Tuan-${weeks}.png`; // Tên file khi tải về
