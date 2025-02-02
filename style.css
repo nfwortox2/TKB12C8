@@ -1,66 +1,96 @@
 html,
 body {
-    height: 100%; 
-}
-
-body {
+    height: 100%;
     margin: 0;
-    background: linear-gradient(45deg, #49a09d, #5f2c82);
-    font-family: sans-serif;
-    font-weight: 100;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(45deg, #f3f3f3, #e0e0e0);
+    color: #333;
 }
 
 .container {
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 1200px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #444;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    font-weight: 600;
 }
 
 table {
-    width: 80%; /* Assuming a maximum width of 80% of the viewport */
+    width: 100%;
     border-collapse: collapse;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 th,
 td {
-	text-align: center;
-	vertical-align: middle;
-	min-width: 100px;
-    padding: 1.5rem; /* Using rem units for relative sizing */
-    background-color: rgba(255,255,255,0.2);
-    color: #fff;
+    padding: 15px;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #ddd;
 }
 
 th {
-    text-align: center;
-	
+    background-color: #55608f;
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-thead {
-    th {
-        background-color: #55608f;
-    }
+td {
+    background-color: #f9f9f9;
+    color: #555;
 }
-/* tbody { */
-    /* tr:hover { */
-        /* background-color: rgba(255,255,255,0.3); */
-    /* } */
-    /* td { */
-        /* position: relative; */
-        /* &:hover { */
-            /* &:before { */
-                /* content: ""; */
-                /* position: absolute; */
-                /* left: 0; */
-                /* right: 0; */
-                /* top: -9999px; */
-                /* bottom: -9999px; */
-                /* background-color: rgba(255,255,255,0.2); */
-                /* z-index: -1; */
-            /* } */
-        /* } */
-    /* } */
-/* } */
+
+tr:nth-child(even) td {
+    background-color: #f1f1f1;
+}
+
+tr:hover td {
+    background-color: #e0e0e0;
+    transition: background-color 0.3s ease;
+}
+
+tfoot td {
+    background-color: #55608f;
+    color: #fff;
+    font-style: italic;
+    padding: 10px;
+    text-align: center;
+}
+
+#capture-btn {
+    position: fixed; /* Cố định vị trí */
+    top: 20px; /* Cách trên 20px */
+    right: 20px; /* Cách phải 20px */
+    z-index: 1000; /* Đảm bảo nút luôn hiển thị trên các phần tử khác */
+    padding: 10px 20px; /* Thêm padding để nút đẹp hơn */
+    font-size: 16px; /* Kích thước chữ */
+    border: none; /* Bỏ viền */
+    border-radius: 5px; /* Bo góc */
+    background-color: #007bff; /* Màu nền */
+    color: #fff; /* Màu chữ */
+    cursor: pointer; /* Hiệu ứng con trỏ */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Đổ bóng */
+}
+
+#capture-btn:hover {
+    background-color: #0056b3; /* Màu nền khi hover */
+}

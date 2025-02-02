@@ -6,6 +6,7 @@
     <title>TKB 12C8</title>
 	<link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
     <div class="container mt-5" style="overflow-x:auto;">
@@ -97,6 +98,23 @@
 				<td colspan="7">Nếu không hiện thì do chưa có lịch. Bảng lấy TKB tuần sau mỗi 0 giờ sáng Chủ Nhật.</td>
 			</tr>
 			</tfoot>
+			<button id="capture-btn" class="btn btn-primary mb-3">Chụp ảnh bảng</button>
         </table>
     </div>
+	<script>
+        // JavaScript để chụp ảnh bảng
+        document.getElementById('capture-btn').addEventListener('click', function () {
+            // Chọn phần tử cần chụp (ở đây là bảng)
+            const tableContainer = document.getElementById('myTable');
+
+            // Sử dụng html2canvas để chụp ảnh
+            html2canvas(tableContainer).then(canvas => {
+                // Tạo một thẻ <a> để tải ảnh về
+                const link = document.createElement('a');
+                link.download = `TKB-12C8-Tuan-${weeks}.png`; // Tên file khi tải về
+                link.href = canvas.toDataURL(); // Chuyển canvas thành URL ảnh
+                link.click(); // Tự động click để tải ảnh
+            });
+        });
+    </script>
 </body>
