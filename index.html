@@ -6,9 +6,11 @@
     <title>TKB 12C8</title>
 	<link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
-    <div class="container mt-5" style="overflow-x:auto;">
+	<button id="captureBtn">Tải TKB về máy</button>
+    <div class="container mt-5" style="overflow-x:auto;" id="table-container">
 		<script src="script.js"></script>
         <h2 class="text-center"><b>Thời Khóa Biểu 12C8</b></h2>
         <table id="myTable" class="table table-bordered">
@@ -99,4 +101,36 @@
 			</tfoot>
         </table>
     </div>
+	<script src="script.js"></script>
+
+    <script>
+    document.getElementById('captureBtn').addEventListener('click', function() {
+        if (!isDataReady) {
+            alert('Vui lòng đợi dữ liệu tải xong!');
+            return;
+        }
+
+        const table = document.getElementById('myTable');
+        html2canvas(table, {
+            scale: 2, // Tăng độ phân giải
+            useCORS: true, // Bật CORS nếu cần
+            logging: true // Hiển thị log lỗi
+        }).then(function(canvas) {
+            const imgData = canvas.toDataURL('image/png');
+            const link = document.createElement('a');
+            link.href = imgData;
+			const startDate = new Date("2024-09-09:00:000:+7");
+			const endDate = new Date();
+			const timeDifference = Math.abs(endDate.addDays(1) - startDate);
+			const weeks = Math.ceil(timeDifference / (1000 * 60 * 60 * 24 * 7)) - 1;
+            link.download = `TKB 12C8 tuần ${weeks}.png`;
+            link.click();
+        }).catch(function(error) {
+            console.error('Lỗi html2canvas:', error);
+        });
+    });
+	</script>
+	
+
+  
 </body>
