@@ -108,14 +108,26 @@
             const tableContainer = document.getElementById('myTable');
 
             // Sử dụng html2canvas để chụp ảnh
-            html2canvas(tableContainer, { useCORS: true }).then(canvas => {
-				document.body.appendChild(canvas) // debug
-                // Tạo một thẻ <a> để tải ảnh về
-                const link = document.createElement('a');
-                link.download = `TKB-12C8-Tuan-${weeks}.png`; // Tên file khi tải về
-                link.href = canvas.toDataURL(); // Chuyển canvas thành URL ảnh
-                link.click(); // Tự động click để tải ảnh
-            });
+            html2canvas(tableContainer, {
+				useCORS: true,
+				proxy: 'https://api.codetabs.com/v1/proxy/?quest=', // Replace with a valid proxy server
+			}).then(canvas => {
+				canvas.toBlob(function(blob) {
+					const url = URL.createObjectURL(blob);
+					fetch(url)
+						.then(response => response.blob())
+						.then(blob => {
+							const reader = new FileReader();
+							reader.onload = () => {
+								const link = document.createElement('a');
+								link.href = reader.result;
+								link.download = `TKB-12C6-Tuan-${weeks}.png`;
+								link.click();
+							};
+							reader.readAsDataURL(blob);
+						});
+				});
+			});
         });
     </script>
 </body>
